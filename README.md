@@ -12,6 +12,14 @@ ADMINPASSWD=xxxxx
 SSP_SALT=3a15cc68-d270-4b3a-9726-f135863c21ab
 ```
 
+## Prepare local packages
+
+```
+mkdir packages
+cd packages
+git clone ...
+```
+
 ## Build and run
 
 Scripts:
