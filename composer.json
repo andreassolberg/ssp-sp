@@ -1,0 +1,9 @@
+{
+  "minimum-stability": "dev",
+  "require": {
+    "simplesamlphp/simplesamlphp": "dev-master"
+  },
+  "repositories": [
+  ]
+
+}
