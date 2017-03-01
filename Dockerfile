@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 RUN apt-get update && apt-get install -y \
   ca-certificates unzip curl libcurl4-openssl-dev git \
   nodejs nodejs-legacy \
@@ -26,6 +26,7 @@ RUN composer update
 RUN mkdir -p /var/log/simplesamlphp
 RUN touch /var/log/simplesamlphp/simplesamlphp.log
 RUN chown www-data /var/log/simplesamlphp/simplesamlphp.log
+#RUN ln -s /app/modules/saml2debug /app/vendor/simplesamlphp/simplesamlphp/modules/saml2debug
 
 COPY etc/simplesamlphp-metadata /app/vendor/simplesamlphp/simplesamlphp/metadata/
 COPY etc/simplesamlphp-config /app/vendor/simplesamlphp/simplesamlphp/config/
