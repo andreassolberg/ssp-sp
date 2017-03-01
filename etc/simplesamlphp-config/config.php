@@ -5,11 +5,8 @@
  * $Id$
  */
 
-
-
 $secretSalt = $_ENV['SSP_SALT'];
 $adminPassword = $_ENV['ADMINPASSWD'];
-
 
 $config = array (
 
@@ -38,7 +35,7 @@ $config = array (
 	 */
 	'metadatadir'         => 'metadata/',
 	'attributenamemapdir' => 'attributemap/',
-	'certdir'             => '/feide/certs/',
+	'certdir'             => '/app/certs/',
 	'dictionarydir'       => 'dictionaries/',
 	'loggingdir'          => 'log/',
 	'libextinc'           => 'libextinc/',
@@ -74,8 +71,8 @@ $config = array (
 	 * The email address will be used as the recipient address for error reports, and
 	 * also as the technical contact in generated metadata.
 	 */
-	'technicalcontact_name'     => 'Feide Support',
-	'technicalcontact_email'    => 'moria-drift@uninett.no',
+	'technicalcontact_name'     => 'Admin',
+	'technicalcontact_email'    => getenv('SERVER_ADMIN'),
 
 	/*
 	 * Logging.
@@ -340,7 +337,6 @@ $config = array (
 	// Overridden in config.[prod/test].php
 	'metadata.sources' => array(
 		array('type' => 'flatfile'),
-		array('type' => 'cassandra'),
 	),
 
 

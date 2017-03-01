@@ -13,28 +13,28 @@ RUN docker-php-ext-install ldap curl gmp mcrypt
 RUN a2enmod remoteip
 
 # ---> Apache configuration <---
-RUN mkdir -p /feide
-WORKDIR /feide
+RUN mkdir -p /app
+WORKDIR /app
 
-COPY www /feide/www
+COPY www /app/www
 
 # ---> SimpleSAMLphp app <---
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
-COPY composer.json /feide/
+COPY composer.json /app/
 RUN composer update
 RUN mkdir -p /var/log/simplesamlphp
 RUN touch /var/log/simplesamlphp/simplesamlphp.log
 RUN chown www-data /var/log/simplesamlphp/simplesamlphp.log
 
-COPY etc/simplesamlphp-metadata /feide/vendor/simplesamlphp/simplesamlphp/metadata/
-COPY etc/simplesamlphp-config /feide/vendor/simplesamlphp/simplesamlphp/config/
+COPY etc/simplesamlphp-metadata /app/vendor/simplesamlphp/simplesamlphp/metadata/
+COPY etc/simplesamlphp-config /app/vendor/simplesamlphp/simplesamlphp/config/
 
 RUN rm /etc/apache2/sites-enabled/000-default.conf /etc/apache2/conf-enabled/other-vhosts-access-log.conf
 COPY etc/simplesamlphp.conf /etc/apache2/sites-enabled/simplesamlphp.conf
 COPY etc/php.ini /usr/local/etc/php/conf.d/php.ini
 
-ENV SERVER_ADMIN "andreas.solberg@uninett.no"
-ENV HOST "sp.andreas.labs.uninett.no"
+ENV SERVER_ADMIN "replace.this@acme.org"
+ENV HOST "acme.org"
 ENV HTTPS "http"
 ENV HTTPSON "off"

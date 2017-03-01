@@ -1,7 +1,8 @@
 {
   "minimum-stability": "dev",
   "require": {
-    "simplesamlphp/simplesamlphp": "dev-master"
+    "simplesamlphp/simplesamlphp": "~1.14",
+    "simplesamlphp/simplesamlphp-module-saml2debug": "dev-master"
   },
   "repositories": [
   ]
