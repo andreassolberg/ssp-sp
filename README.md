@@ -64,6 +64,5 @@ kubectl create -f etc-kube/service.json
 kubectl get -o jsonpath="{.spec.ports[0].nodePort}" services feidespdev
 32684
 
-
 gcloud compute firewall-rules create service-feidespdev --source-ranges 130.211.0.0/22 --allow tcp:31882
 ```
